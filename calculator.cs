@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 class Calculadora
 {
@@ -12,6 +13,9 @@ class Calculadora
 		string espaco = " ";
 		
 		string grupoNumerico = "";
+		
+		List<string> valores = new List<string>();
+		List<string> operacoes = new List<string>();
 		
 		do
 		{
@@ -34,16 +38,24 @@ class Calculadora
 				//Verificação de sinais
 				if(sinais.Contains(valorDaEntrada))
 				{
+					operacoes.Add(valorDaEntrada);
+					valores.Add(grupoNumerico);
+					grupoNumerico = "";
 					
 				}
 				
 				//Verificação de espaços
-				
-				//Juntar numeros
+				if(espaco.Contains(valorDaEntrada))
+				{
+					continue;
+				}
 			}
+			//Zerar grupo numerico
+			valores.Add(grupoNumerico);
 			
 			//Entregar resultado a usuario
-			//Console.WriteLine(saida);
+			Console.WriteLine(string.Join(", ", operacoes));
+			Console.WriteLine(string.Join(", ", valores));
 		}
 		while (funcionando);
 	}
