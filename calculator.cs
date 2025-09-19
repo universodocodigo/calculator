@@ -14,8 +14,10 @@ class Calculadora
 		
 		string grupoNumerico = "";
 		
-		List<string> valores = new List<string>();
+		List<int> valores = new List<int>();
 		List<string> operacoes = new List<string>();
+		
+		int x, y;
 		
 		do
 		{
@@ -26,7 +28,6 @@ class Calculadora
 			//Processamento da entrada
 			for(int i = 0; i < entrada.Length; i++)
 			{
-				
 				string valorDaEntrada = entrada[i].ToString();
 				
 				//Verificação de numeros
@@ -39,9 +40,8 @@ class Calculadora
 				if(sinais.Contains(valorDaEntrada))
 				{
 					operacoes.Add(valorDaEntrada);
-					valores.Add(grupoNumerico);
+					valores.Add(int.Parse(grupoNumerico));
 					grupoNumerico = "";
-					
 				}
 				
 				//Verificação de espaços
@@ -51,7 +51,17 @@ class Calculadora
 				}
 			}
 			//Zerar grupo numerico
-			valores.Add(grupoNumerico);
+			valores.Add(int.Parse(grupoNumerico));
+			
+			//Orquestrar calculos
+			for(int j = 0; j < operacoes.Count; j++)
+			{
+				string operacaoAtual = operacoes[j];
+				
+				//Verificar multiplicação e divisão
+				
+				//Verificar adição e subtração
+			}
 			
 			//Entregar resultado a usuario
 			Console.WriteLine(string.Join(", ", operacoes));
