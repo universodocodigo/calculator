@@ -5,9 +5,13 @@ class Calculadora
 	static void Main(string[] args)
 	{
 		bool funcionando = true;
-		int[] numerosPermitidos = {0,1,2,3,4,5,6,7,8,9};
-		char[] sinaisPermitidos = {'+','-','*','/'};
-		char espacoPermitido = ' ';
+		
+		//Variaveis globais
+		string numeros = "0123456789";
+		string sinais = "+-*/";
+		string espaco = " ";
+		
+		string grupoNumerico = "";
 		
 		do
 		{
@@ -16,7 +20,27 @@ class Calculadora
 			string entrada = Console.ReadLine();
 			
 			//Processamento da entrada
-			
+			for(int i = 0; i < entrada.Length; i++)
+			{
+				
+				string valorDaEntrada = entrada[i].ToString();
+				
+				//Verificação de numeros
+				if(numeros.Contains(valorDaEntrada))
+				{
+					grupoNumerico += valorDaEntrada;
+				}
+				
+				//Verificação de sinais
+				if(sinais.Contains(valorDaEntrada))
+				{
+					
+				}
+				
+				//Verificação de espaços
+				
+				//Juntar numeros
+			}
 			
 			//Entregar resultado a usuario
 			//Console.WriteLine(saida);
